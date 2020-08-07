@@ -1,9 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>place-detail</ion-title>
+    <ion-buttons slot="start">
+      <!-- when ionic does not know where to go back, you specify the route to go to -->
+      <!-- default-href when using vanilla -->
+      <ion-back-button defaultHref="/"></ion-back-button> 
+    </ion-buttons>
+    <ion-title>Place Detail</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding">
+  <ion-button color="primary" class="ionic-margin" (click)="onBookPlace()">Book</ion-button>
 </ion-content>

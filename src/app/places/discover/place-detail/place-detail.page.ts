@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-place-detail',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaceDetailPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,
+              private navCtrl: NavController
+  ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+  }
+
+  onBookPlace(): void {
+    // this.router.navigateByUrl('places/tabs/discover');
+    this.navCtrl.navigateBack('/places/tabs/discover');
+    // unreliable, because you will not know what the first page stack is
+    // this.navCtrl.pop();
   }
 
 }

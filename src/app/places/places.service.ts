@@ -12,8 +12,18 @@ export class PlacesService {
     new Place('p3', 'The Foggy Palace', 'Not your average city trip!', 'https://q-cf.bstatic.com/images/hotel/max1024x768/153/153659779.jpg', 99.99)
   ];
 
+  private _offers: Place[] = [
+    new Place('a1', 'NY Apartment', 'Cozy af!', 'https://www.brickunderground.com/sites/default/files/styles/blog_primary_image/public/blog/images/Screen%20Shot%202018-11-13%20at%201.46.16%20PM.png', 199.42),
+    new Place('a2', 'LA Apartment', 'Hippie af!', 'https://www.brickunderground.com/sites/default/files/styles/blog_primary_image/public/blog/images/Screen%20Shot%202018-11-13%20at%201.46.16%20PM.png', 299.42),
+    new Place('a3', 'PH Apartment', 'Vacation af!', 'https://www.brickunderground.com/sites/default/files/styles/blog_primary_image/public/blog/images/Screen%20Shot%202018-11-13%20at%201.46.16%20PM.png', 399.42),
+  ];
+
   get places() {
     return [...this._places];
+  }
+
+  get offers() {
+    return [...this._offers];
   }
 
   constructor() { }

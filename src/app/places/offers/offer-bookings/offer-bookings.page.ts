@@ -10,6 +10,7 @@ export class OfferBookingsPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('test in offer bookings');
   }
 
 }
