@@ -1,11 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
 
 import { OfferBookingsPageRoutingModule } from './offer-bookings-routing.module';
-
 import { OfferBookingsPage } from './offer-bookings.page';
 
 @NgModule({
@@ -17,4 +15,8 @@ import { OfferBookingsPage } from './offer-bookings.page';
   ],
   declarations: [OfferBookingsPage]
 })
-export class OfferBookingsPageModule {}
+export class OfferBookingsPageModule {
+  constructor() {
+    console.log('test');
+  }
+}
