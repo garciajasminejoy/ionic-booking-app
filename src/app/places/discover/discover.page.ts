@@ -24,4 +24,8 @@ export class DiscoverPage implements OnInit {
     // this.menuCtrl.
   }
 
+  onFilterUpdate(event: CustomEvent): void {
+    console.log(event.detail);
+  }
+
 }

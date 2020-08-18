@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ModalController, NavController } from '@ionic/angular';
+import { ModalController, NavController, ActionSheetController } from '@ionic/angular';
 import { CreateBookingComponent } from 'src/app/bookings/create-booking/create-booking.component';
 
 import { Place } from '../../place.model';
@@ -18,7 +18,8 @@ export class PlaceDetailPage implements OnInit {
               private route: ActivatedRoute,
               private navCtrl: NavController,
               private placesService: PlacesService,
-              private modalCtrl: ModalController
+              private modalCtrl: ModalController,
+              private actionSheetCtrl: ActionSheetController
   ) { }
 
   ngOnInit(): void {
@@ -37,6 +38,34 @@ export class PlaceDetailPage implements OnInit {
     // this.navCtrl.navigateBack('/places/tabs/discover');
     // unreliable, because you will not know what the first page stack is
     // this.navCtrl.pop();
+    this.actionSheetCtrl.create({
+      header: 'Choose an action',
+      buttons: [
+        {
+          text: 'Select Date',
+          handler: () => {
+            this.openBookingModal('select')
+          }
+        },
+        {
+          text: 'Random Date',
+          handler: () => {
+            this.openBookingModal('random')
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel'
+          // role: 'destructive' --> red text
+        }
+      ]
+    }).then(actionSheetEl => {
+      actionSheetEl.present();
+    });
+  }
+
+  openBookingModal(mode: 'select' | 'random'): void {
+    console.log(mode);
     this.modalCtrl.create({
       component: CreateBookingComponent,
       componentProps: {
